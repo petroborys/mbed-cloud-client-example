@@ -1,1 +1,30 @@
 
+
+language: python
+python:
+- '3.6'
+env:
+  global:
+  - TC_HOME=$HOME/tc
+  - MBED_BUILD_TIMESTAMP=42
+  - BUILD_DIR=cloud_client
+matrix:
+  include:
+  - os: linux
+    env: MBED_CLOUD=1.5.0 ARMGCC_VERSION=6.3.1
+before_install:
+- pip install -U pip wheel
+- pip install mbed-cli
+- mbed deploy
+- mbed new .
+- "./toolchain_install.sh"
+script:
+#- mbed import https://github.com/petroborys/mbed-cloud-client-example
+#- cd mbed-cloud-client-example
+- mbed config --list
+- [ -z "$CI" ] && mbed config GCC_ARM_PATH $HOME/bin
+#- mbed toolchain GCC_ARM
+#- mbed target K64F
+#- mbed compile
+- mbed compile -t GCC_ARM -m K64F
+#test
