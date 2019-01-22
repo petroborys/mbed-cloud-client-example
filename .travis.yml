@@ -19,5 +19,5 @@ before_install:
 - pip install -U pip wheel
 - pip install mbed-cli
 script:
--  mbed import https://github.com/petroborys/mbed-cloud-client-example $1
--  cd $1
+-  mbed import https://github.com/petroborys/mbed-cloud-client-example
+-  cd mbed-cloud-client-example
