@@ -27,4 +27,3 @@ script:
 #- mbed target K64F
 #- mbed compile
 - mbed compile -t GCC_ARM -m K64F
-#test
