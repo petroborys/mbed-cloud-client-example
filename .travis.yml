@@ -2,11 +2,6 @@
 language: python
 python:
 - '3.6'
-env:
-  global:
-  - TC_HOME=$HOME/tc
-  - MBED_BUILD_TIMESTAMP=42
-  - BUILD_DIR=cloud_client
 matrix:
   include:
   - os: linux
@@ -16,7 +11,6 @@ before_install:
 - pip install mbed-cli
 - mbed deploy
 - mbed new .
-#- "./toolchain_install.sh"
 - chmod +x mbed-ci/toolchain_install.sh
 - . mbed-ci/toolchain_install.sh && linux_default_download
 script:
