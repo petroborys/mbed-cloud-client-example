@@ -21,7 +21,8 @@ script:
 #- mbed import https://github.com/petroborys/mbed-cloud-client-example
 #- cd mbed-cloud-client-example
 - mbed config --list
-- [ -z "$CI" ] && mbed config GCC_ARM_PATH $HOME/bin
+#- [ -z "$CI" ] && mbed config GCC_ARM_PATH $HOME/bin
+- mbed config GCC_ARM_PATH $HOME/bin
 #- mbed toolchain GCC_ARM
 #- mbed target K64F
 #- mbed compile
