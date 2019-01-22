@@ -16,7 +16,9 @@ before_install:
 - pip install mbed-cli
 - mbed deploy
 - mbed new .
-- "./toolchain_install.sh"
+#- "./toolchain_install.sh"
+- chmod +x mbed-ci/toolchain_install.sh
+- . mbed-ci/toolchain_install.sh && linux_default_download
 script:
 #- mbed import https://github.com/petroborys/mbed-cloud-client-example
 #- cd mbed-cloud-client-example
