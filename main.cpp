@@ -37,6 +37,7 @@ intddd i = 0;
 int main(void)
 {
     mcc_platform_run_program(main_application);
+    error
 }
 
 // Pointers to the resources that will be created in main_application().
