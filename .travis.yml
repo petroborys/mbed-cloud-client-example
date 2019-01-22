@@ -22,4 +22,4 @@ script:
 #- mbed toolchain GCC_ARM
 #- mbed target K64F
 #- mbed compile
--  mbed compile -m K64F
+- mbed compile -t GCC_ARM -m K64F
