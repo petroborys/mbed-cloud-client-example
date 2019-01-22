@@ -32,7 +32,7 @@ static Blinky blinky;
 
 static void main_application(void);
 
-int_dd i = 0;
+int i = 0;
 
 int main(void)
 {
