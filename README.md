@@ -1,1 +1,7 @@
-The full documentation for this example is [available on our documentation site](https://cloud.mbed.com/docs/current/connecting/device-management-client-tutorials.html)
+### Build mbed-cloud-client in matrix
+
+Master:
+[![Build Status](https://travis-ci.com/iconservo/mbed-testbuild.svg?branch=master)](https://travis-ci.com/iconservo/mbed-testbuild)
+
+Develop:
+[![Build Status](https://travis-ci.com/iconservo/mbed-testbuild.svg?branch=develop)](https://travis-ci.com/iconservo/mbed-testbuild)
