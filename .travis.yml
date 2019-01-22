@@ -17,6 +17,7 @@ before_install:
 script:
 - mbed import https://github.com/petroborys/mbed-cloud-client-example
 - cd mbed-cloud-client-example
+- mbed config GCC_ARM_PATH $HOME/bin
 - mbed toolchain GCC_ARM
 - mbed target K64F
 - mbed compile
