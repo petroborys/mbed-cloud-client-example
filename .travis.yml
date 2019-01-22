@@ -1,45 +1,18 @@
 language: python
 python:
-- '3.6'
-env:
-  global:
-  - TC_HOME=$HOME/tc
-  - MBED_BUILD_TIMESTAMP=42
-  - BUILD_DIR=cloud_client
-matrix:
-  include:
-  - os: linux
-    env: MBED_CLOUD=1.5.0 ARMGCC_VERSION=6.3.1
-  - os: linux
-    env: MBED_CLOUD=2.0.1.1 ARMGCC_VERSION=6.3.1
-  - os: linux
-    env: MBED_CLOUD=2.0.1.1 ARMGCC_VERSION=7.3.1
-before_install:
-- pip install -U pip wheel
-- pip install mbed-cli
-- mbed deploy
-- chmod +x toolchain_install.sh
-- "./toolchain_install.sh"
-script:
-- ". ./mbed-cloud-build.sh && cloudbuild ${BUILD_DIR} ${MBED_CLOUD}"
+    - "2.7"
+
 cache:
-  directories:
-  - "${TC_HOME}"
-  - "${HOME}/.mbed/mbed-cache"
-before_deploy:
-  - printenv
-  - find cloud_client/BUILD/
-  - zip -r ${BUILD_DIR}/BUILD/mbed-${MBED_CLOUD}-armgcc-${ARMGCC_VERSION}.zip ${BUILD_DIR}/BUILD/*
-  - find ${BUILD_DIR}/BUILD -type f -mindepth 2 -delete
-  - find ${BUILD_DIR}/BUILD -type d -empty -delete
-deploy:
-  provider: releases
-  name: Build ${TRAVIS_JOB_NUMBER} MBED ${MBED_CLOUD} ARMGCC ${ARMGCC_VERSION}
-  skip_cleanup: true
-  file_glob: true
-  file: cloud_client/BUILD/**/*
-  api_key: ${GITHUB_TOKEN}
-  on:
-    all_branches: false
-    tags: true
-    condition: $TRAVIS_PULL_REQUEST == "false"
+    directories:
+        - "~/.platformio"
+
+env:
+    - PLATFORMIO_CI_SRC=path/to/test/file.c
+    - PLATFORMIO_CI_SRC=examples/file.ino
+    - PLATFORMIO_CI_SRC=path/to/test/directory
+
+install:
+    - pip install -U platformio
+
+script:
+    - platformio ci --board=K64F
