@@ -29,3 +29,5 @@ script:
 #- mbed target K64F
 #- mbed compile
 - mbed compile -t GCC_ARM -m K64F
+- export MBED_BUILD_TIMESTAMP=42
+- cloudbuild cloud-1.5 1.5.0
