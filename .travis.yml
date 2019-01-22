@@ -18,6 +18,7 @@ before_install:
 - pip install -U pip wheel
 - pip install mbed-cli
 - mbed deploy
+- chmod +x toolchain_install.sh
 - "./toolchain_install.sh"
 script:
 - ". ./mbed-cloud-build.sh && cloudbuild ${BUILD_DIR} ${MBED_CLOUD}"
