@@ -32,6 +32,8 @@ static Blinky blinky;
 
 static void main_application(void);
 
+int i = 0;
+
 int main(void)
 {
     mcc_platform_run_program(main_application);
