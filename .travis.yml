@@ -17,3 +17,4 @@ script:
 - mbed config GCC_ARM_PATH $HOME/bin
 - mkdir -p BUILD
 - mbed compile -t GCC_ARM -m K64F
+
